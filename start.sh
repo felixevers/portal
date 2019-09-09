@@ -1,4 +1,4 @@
-read Xenv < <(x11docker --desktop --xorg --showenv)
+read Xenv < <(x11docker --desktop --xorg --wm=none --vt=$2 --showenv)
 export $Xenv
 docker run \
     --env DISPLAY \
