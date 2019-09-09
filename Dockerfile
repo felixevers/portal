@@ -10,11 +10,6 @@ RUN pip install pipenv tensorflow flask jupyter pandas sqlalchemy pymysql
 
 RUN npm install -g @angular/cli ionic
 
-RUN docker pull python:3.7-alpine
-RUN docker pull mariadb:latest
-RUN docker pull phpmyadmin:latest
-RUN docker pull archlinux/base:latest
-
 RUN echo "exec i3" > ~/.xinitrc
 
 CMD /usr/bin/startx
