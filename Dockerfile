@@ -14,6 +14,7 @@ RUN pip install pipenv tensorflow flask jupyter pandas sqlalchemy pymysql
 RUN npm install -g @angular/cli ionic
 
 RUN useradd -d /home/worker -m worker
+RUN groupadd sudo
 RUN usermod -aG sudo worker
 USER worker
 
