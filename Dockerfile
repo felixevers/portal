@@ -18,7 +18,7 @@ RUN chown -R worker /home/worker
 
 RUN sudo -u worker bash -c "git clone https://aur.archlinux.org/yay.git /tmp/yay && cd /tmp/yay/ && makepkg -si --noconfirm"
 
-RUN yay -Sy polybar intellij-idea-ultimate-edition pycharm-professional android-studio android-sdk android-sdk-platform-tools android-sdk-build-tools android-tools flutter chromium-widevine tor-browser typora --noconfirm
+RUN yay -Sy polybar intellij-idea-ultimate-edition pycharm-professional android-studio android-sdk android-sdk-platform-tools android-sdk-build-tools android-tools chromium-widevine tor-browser typora --noconfirm
 
 USER worker 
 
