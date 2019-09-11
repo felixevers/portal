@@ -16,7 +16,7 @@ RUN useradd -d /home/worker -s /bin/bash -m worker
 RUN echo "worker ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 RUN chown -R worker /home/worker
 
-RUN sudo -u worker bash -c "git clone https://aur.archlinux.org/yay.git /tmp/yay && cd /tmp/yay/ && makepkg -si --noconfirm && yay -Sy polybar intellij-idea-ultimate-edition pycharm-professional android-studio android-sdk chromium-widevine tor-browser typora --noconfirm"
+RUN sudo -u worker bash -c "git clone https://aur.archlinux.org/yay.git /tmp/yay && cd /tmp/yay/ && makepkg -si --noconfirm && yay -Sy polybar intellij-idea-ultimate-edition pycharm-professional android-studio android-sdk chromium-widevine tor-browser typora --noconfirm --mflags --skipinteg"
 
 USER worker 
 
