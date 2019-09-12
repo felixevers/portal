@@ -6,3 +6,5 @@ alias public="curl https://api.ipify.org/ && echo"
 for f in "$HOME/.bash/"*?.bash; do
     . "$f"
 done
+
+cd ~
