@@ -9,8 +9,8 @@
 # layout, use the i3-config-wizard
 #
 
-exec --no-startup-id sudo -u worker /home/worker/.config/polybar/launch.sh
-exec --no-startup-id sudo -u worker feh --bg-fill /home/worker/.bg.jpg
+exec_always --no-startup-id sudo -u worker /home/worker/.config/polybar/launch.sh
+exec_always --no-startup-id sudo -u worker feh --bg-fill /home/worker/.bg.jpg
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
