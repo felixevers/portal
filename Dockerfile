@@ -16,4 +16,4 @@ RUN sudo -u worker bash -c "git clone https://aur.archlinux.org/yay.git /tmp/yay
 
 USER worker
 
-CMD /home/worker/run.sh
+CMD /usr/bin/i3
