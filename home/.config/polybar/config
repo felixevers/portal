@@ -73,12 +73,12 @@ scroll-down = i3wm-wsprev
 
 ;== Module Location ========================================================
 
-modules-left = arch workspaces term browser 
-modules-right = date 
+modules-left = rofi workspaces term browser 
+modules-right = date window
  
 ;== Modules ========================================================
 
-[module/arch]
+[module/rofi]
 type = custom/text
 content = 
 ;alt-icon = 
@@ -86,6 +86,14 @@ content-padding = 2
 content-background = ${color.acolor}
 content-foreground = ${color.fg}
 click-left = rofi -show drun 
+
+[module/window]
+type = custom/text
+content = 
+content-padding = 2
+content-background = ${color.acolor}
+content-foreground = ${color.fg}
+click-left = rofi -show window
 
 [module/workspaces]
 type = internal/xworkspaces
@@ -140,7 +148,6 @@ click-left = chromium &
 
 [module/date]
 type = internal/date
-interval = 30
+interval = 1
 label =  %time%
-time =  %H:%M
-time-alt =  %Y-%m-%d
+time = " %H:%M:%S    %d.%m.%Y"
