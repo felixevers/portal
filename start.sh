@@ -2,6 +2,9 @@ LAST_DISPLAY=$(ls /tmp/.X11-unix/ | sort | tail -n 1 | tail -c +2 | head -c -1)
 DISPLAY=$((LAST_DISPLAY+1))
 vt=$2
 
+mkdir -p ~/portal_data
+chown -R 1000:1000 ~/portal_data
+
 Xorg -configure
 Xorg :$DISPLAY vt$vt \
   -dpms -s off -retro \
