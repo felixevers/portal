@@ -2,6 +2,7 @@ LAST_DISPLAY=$(ls /tmp/.X11-unix/ | sort | tail -n 1 | tail -c +2 | head -c -1)
 DISPLAY=$((LAST_DISPLAY+1))
 vt=$2
 
+Xorg -configure
 Xorg :$DISPLAY vt$vt \
   -dpms -s off -retro \
   +extension RANDR \
@@ -26,6 +27,7 @@ docker run \
     -e DISPLAY=:$DISPLAY \
     -v /tmp/.X11-unix/X$DISPLAY:/tmp/.X11-unix/X$DISPLAY:rw \
     --rm \
+    -v ~/portal_data:/home/worker/data:rw \
     -v /dev:/dev \
     --ipc=host \
     --privileged \
