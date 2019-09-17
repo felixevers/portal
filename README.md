@@ -34,7 +34,7 @@ Use the [`run`](https://github.com/use-to/portal/blob/master/run) directory to e
 
 You can switch your [virtual console](https://en.wikipedia.org/wiki/Virtual_console) with `CTRL`+`ALT`+`FX`. The `X` is for example `1` for `tty1`.
 
-After that you can delete your workspace by running the [stop](https://github.com/use-to/portal/blob/master/start.sh) script with the right permissions:
+After that you can delete your workspace by running the [stop](https://github.com/use-to/portal/blob/master/stop.sh) script with the right permissions:
 
 `bash stop.sh 2`
 
