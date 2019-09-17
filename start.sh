@@ -22,7 +22,7 @@ Xorg :$DISPLAY vt$vt \
   -quiet &
 
 docker run \
-    --name PORTAL_$vt
+    --name PORTAL_$vt \
     -e DISPLAY=:$DISPLAY \
     -v /tmp/.X11-unix/X$DISPLAY:/tmp/.X11-unix/X$DISPLAY:rw \
     --rm \
@@ -31,6 +31,3 @@ docker run \
     --privileged \
     -d \
     $1
-
-mkdir -p ~/.cache/portal/
-echo $$ > ~/.cache/portal/PORTAL_$vt
