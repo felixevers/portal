@@ -1,0 +1,2 @@
+# keyboard layout
+setxkbmap de

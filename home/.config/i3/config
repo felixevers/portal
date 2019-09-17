@@ -9,6 +9,7 @@
 # layout, use the i3-config-wizard
 #
 
+exec_always --no-startup-id sudo bash -c "for e in /home/worker/.run/*.sh ; do bash $e ; done"
 exec_always --no-startup-id sudo -u worker /home/worker/.config/polybar/launch.sh
 exec_always --no-startup-id sudo -u worker feh --bg-fill /home/worker/.bg.jpg
 
