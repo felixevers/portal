@@ -30,7 +30,7 @@ docker run \
     -e DISPLAY=:$DISPLAY \
     -v /tmp/.X11-unix/X$DISPLAY:/tmp/.X11-unix/X$DISPLAY:rw \
     --rm \
-    -v run/:/home/worker/.run/:r \
+    -v ${PWD}/run:/home/worker/.run:ro \
     -v ~/portal_data:/home/worker/data:rw \
     -v /dev:/dev \
     --ipc=host \
