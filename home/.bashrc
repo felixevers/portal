@@ -1,3 +1,5 @@
+export TERM=xterm-256color
+
 alias vim="nvim"
 alias l="ls -lahs"
 alias ..="cd .."
