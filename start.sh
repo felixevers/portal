@@ -34,6 +34,7 @@ docker run \
     -v ~/portal_data:/home/worker/data:rw \
     -v /dev:/dev \
     -v /etc/localtime:/etc/localtime:ro \
+    --net=host \
     --ipc=host \
     --privileged \
     -d \
