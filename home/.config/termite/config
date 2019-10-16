@@ -2,4 +2,4 @@
 font = Noto Sans Mono 10
 
 [colors]
-background  = #1F1F1F
+background  = rgba(31,31,31,0.7)
