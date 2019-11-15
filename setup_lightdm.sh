@@ -60,10 +60,15 @@ fi
 
 echo "Installing scripts ..."
 
-sudo mkdir /etc/portal
+if [ ! -d "/etc/portal"]; then
+  sudo mkdir /etc/portal
+  sudo rm /etc/portal/start_script.sh
+  sudo touch /etc/portal/start_script.sh
+fi
+
 sudo cp ./start.sh /etc/portal/
 sudo cp ./stop.sh /etc/portal
-sudo touch /etc/portal/start_script.sh
+
 #echo "/etc/portal/start.sh $DOCKERIMAGE" > /etc/portal/start_script.sh
 sudo sh -c 'echo "touch home/$USER/hereiam" > /etc/portal/start_script.sh'
 
