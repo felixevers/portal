@@ -47,9 +47,7 @@ echo "Installing packages ..."
 
 if [ $DISTRO = "ARCH" ]; then
   sudo pacman -Sy
-  sudo pacman -S lightdm  lightdm-webkit2-greeter lightdm-gtk-greeter
-  git clone https://aur.archlinux.org/lightdm-webkit-theme-aether.git
-  cd lightdm-webkit-theme-aether && makepkg -si && cd ..
+  sudo pacman -S lightdm lightdm-webkit2-greeter lightdm-gtk-greeter
 
 elif [ $DISTRO = "DEBIAN" ]; then
   sudo apt-get install lightdm lightdm-webkit2-greeter lightdm-gtk-greeter lightdm-webkit-theme-aether
@@ -58,14 +56,21 @@ else
   exit 1
 fi
 
-echo "Installing scripts ..."
-
-if [ ! -d "/etc/portal"]; then
-  sudo mkdir /etc/portal
-  sudo rm /etc/portal/start_script.sh
-  sudo touch /etc/portal/start_script.sh
+if [ ! -d "Aether" ]; then
+  git clone https://github.com/NoiSek/Aether.git
 fi
 
+sudo cp --recursive Aether /usr/share/lightdm-webkit/themes/Aether
+sudo sed -i 's/^webkit_theme\s*=\s*\(.*\)/webkit_theme = lightdm-webkit-theme-aether #\1/g' /etc/lightdm/lightdm-webkit2-greeter.conf
+sudo sed -i 's/^\(#?greeter\)-session\s*=\s*\(.*\)/greeter-session = lightdm-webkit2-greeter #\1/ #\2g' /etc/lightdm/lightdm.conf
+
+echo "Installing scripts ..."
+
+if [ ! -d "/etc/portal" ]; then
+  sudo mkdir /etc/portal
+fi
+
+sudo touch /etc/portal/start_script.sh
 sudo cp ./start.sh /etc/portal/
 sudo cp ./stop.sh /etc/portal
 
