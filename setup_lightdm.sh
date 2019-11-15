@@ -47,7 +47,7 @@ echo "Installing packages ..."
 
 if [ $DISTRO = "ARCH" ]; then
   pacman -Sy
-  pacman -S lightdm  lightdm-webkit2-greeter
+  pacman -S lightdm  lightdm-webkit2-greeter lightdm-gtk-greeter lightdm-webkit-theme-aether
 elif [ $DISTRO = "DEBIAN" ]; then
   apt-get install lightdm lightdm-webkit2-greeter lightdm-gtk-greeter lightdm-webkit-theme-aether
 else
@@ -67,6 +67,8 @@ echo "touch home/$USER/hereiam" > /etc/portal/start_script.sh
 echo "Configurating Lightdm ..."
 
 echo "session-setup-script=/etc/portal/start_script.sh" >> /etc/lightdm/lightdm.conf
+echo "greeter-session=lightdm-webkit2-greeter" >> /etc/lightdm/lightdm.conf
+echo "theme=aether" >> /etc/lightdm/lightdm.conf
 
 echo "Enables Lightdm daemon ..."
 systemctl enable lightdm.service
