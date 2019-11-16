@@ -56,9 +56,18 @@ else
   exit 1
 fi
 
+if [ ! -d "lightdm-webkit-theme-aether" ]; then
+  git clone https://aur.archlinux.org/lightdm-webkit-theme-aether.git
+  cd lightdm-webkit-theme-aether
+  makepkg -si
+  cd ..
+fi
+
 if [ ! -d "Aether" ]; then
   git clone https://github.com/NoiSek/Aether.git
 fi
+
+echo "Configurating Lightdm ..."
 
 sudo cp --recursive Aether /usr/share/lightdm-webkit/themes/Aether
 sudo sed -i 's/^webkit_theme\s*=\s*\(.*\)/webkit_theme = lightdm-webkit-theme-aether #\1/g' /etc/lightdm/lightdm-webkit2-greeter.conf
@@ -71,17 +80,11 @@ if [ ! -d "/etc/portal" ]; then
 fi
 
 sudo touch /etc/portal/start_script.sh
-sudo cp ./start.sh /etc/portal/
-sudo cp ./stop.sh /etc/portal
+sudo cp start.sh /etc/portal/
+sudo cp stop.sh /etc/portal
 
 #echo "/etc/portal/start.sh $DOCKERIMAGE" > /etc/portal/start_script.sh
-sudo sh -c 'echo "touch home/$USER/hereiam" > /etc/portal/start_script.sh'
-
-echo "Configurating Lightdm ..."
-
-sudo sh -c 'echo "session-setup-script=/etc/portal/start_script.sh" >> /etc/lightdm/lightdm.conf'
-sudo sh -c 'echo "greeter-session=lightdm-webkit2-greeter" >> /etc/lightdm/lightdm.conf'
-sudo sh -c 'echo "theme=aether" >> /etc/lightdm/lightdm.conf'
+#sudo sh -c 'echo "touch home/$USER/hereiam" > /etc/portal/start_script.sh'
 
 echo "Enables Lightdm daemon ..."
 sudo systemctl enable lightdm.service
