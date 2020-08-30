@@ -74,7 +74,7 @@ scroll-down = i3wm-wsprev
 ;== Module Location ========================================================
 
 modules-left = rofi workspaces term browser 
-modules-right = date window
+modules-right = date exit window
  
 ;== Modules ========================================================
 
