@@ -56,8 +56,8 @@ module-margin-right = 2
 
 ;==========================================================
 
-font-0 = "Noto Sans Mono:pixelsize=12;2"
-font-1 = "Material Icons:size=13;4"
+font-0 = "Noto Sans Mono:pixelsize=16;2"
+font-1 = "Material Design Icons:size=15;4"
 
 ;==========================================================
 
@@ -80,8 +80,7 @@ modules-right = date exit window
 
 [module/rofi]
 type = custom/text
-content = 
-;alt-icon = 
+content = 󰀻
 content-padding = 2
 content-background = ${color.acolor}
 content-foreground = ${color.fg}
@@ -89,7 +88,7 @@ click-left = rofi -show drun
 
 [module/window]
 type = custom/text
-content = 
+content = 󰉈
 content-padding = 2
 content-background = ${color.acolor}
 content-foreground = ${color.fg}
@@ -102,12 +101,16 @@ enable-click = true
 enable-scroll = true
 format-padding = 0
 
-icon-0 = 1;
-icon-1 = 2;
-icon-2 = 3;
-icon-3 = 4;
-;icon-4 = 5;
-icon-default = 
+icon-0 = 1;󰼏
+icon-1 = 2;󰼐
+icon-2 = 3;󰼑
+icon-3 = 4;󰼒
+icon-4 = 5;󰼓
+icon-5 = 6;󰼔
+icon-6 = 7;󰼕
+icon-7 = 8;󰼖
+icon-8 = 9;󰼗
+icon-default = 󰼎
 
 format = <label-state>
 label-active = %icon%
@@ -131,7 +134,7 @@ label-occupied-underline = ${color.coccupied}
 
 [module/term]
 type = custom/text
-content = 
+content = 󰘧
 content-foreground = ${color.fg-alt}
 click-left = termite &
 click-middle = urxvt &
@@ -139,15 +142,15 @@ click-right = xfce4-terminal &
 
 [module/browser]
 type = custom/text
-content = 
+content = 󰊯
 content-padding = 1
 content-foreground = ${color.fg-alt}
 click-left = chromium &
 
 [module/exit]
 type = custom/text
-content = EXIT
-content-padding = 1
+content = 󰋺
+;content-padding = 1
 content-foreground = ${color.red}
 click-left = kill 1
 
@@ -157,4 +160,4 @@ click-left = kill 1
 type = internal/date
 interval = 1
 label =  %time%
-time = " %H:%M:%S    %d.%m.%Y"
+time = "󱑎 %H:%M:%S   󰃭 %d.%m.%Y"
