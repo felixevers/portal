@@ -144,6 +144,13 @@ content-padding = 1
 content-foreground = ${color.fg-alt}
 click-left = chromium &
 
+[module/exit]
+type = custom/text
+content = EXIT
+content-padding = 1
+content-foreground = ${color.red}
+click-left = kill 1
+
 ;==========================================================
 
 [module/date]
