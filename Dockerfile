@@ -6,7 +6,7 @@ ADD ./home/ /home/worker/
 
 RUN pacman -Syu --noconfirm
 RUN pacman -Sy --noconfirm
-RUN pacman -S base base-devel i3-wm i3-gaps binutils chromium git neovim curl termite rofi sudo noto-fonts feh arandr --noconfirm
+RUN pacman -S base base-devel i3-wm i3-gaps binutils chromium git neovim curl termite rofi sudo noto-fonts feh arandr ranger mutt --noconfirm
 
 RUN useradd -d /home/worker -s /bin/bash -m worker
 RUN echo "worker ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
