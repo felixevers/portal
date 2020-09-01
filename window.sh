@@ -1,4 +1,4 @@
-IMAGE=useto/portal
+IMAGE=useto/portal:development
 RESOLUTION=1920x1080
 
 LAST_DISPLAY=$(ls /tmp/.X11-unix/ | sort | tail -n 1 | tail -c +2 | head -c -1)
