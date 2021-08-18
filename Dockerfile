@@ -1,4 +1,4 @@
-FROM archlinux/base
+FROM archlinux:base-devel
 
 RUN mkdir /home/worker
 
@@ -6,9 +6,12 @@ ADD ./home/ /home/worker/
 
 RUN pacman -Syu --noconfirm
 RUN pacman -Sy --noconfirm
-RUN pacman -S base base-devel i3-wm i3-gaps binutils chromium git neovim curl termite rofi sudo noto-fonts feh arandr ranger mutt --noconfirm
+RUN pacman -S base base-devel i3-wm i3-gaps binutils chromium git neovim curl termite rofi sudo alsa pulseaudio pulseaudio-alsa pavucontrol docker noto-fonts feh arandr ranger mutt --noconfirm
 
 RUN useradd -d /home/worker -s /bin/bash -m worker
+RUN groupadd audio
+RUN groupadd docker
+RUN usermod -a -G audio,docker worker
 RUN echo "worker ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 RUN chown -R worker /home/worker
 

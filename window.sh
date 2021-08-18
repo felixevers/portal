@@ -1,4 +1,4 @@
-IMAGE=useto/portal:development
+IMAGE=portal
 RESOLUTION=1920x1080
 
 LAST_DISPLAY=$(ls /tmp/.X11-unix/ | sort | tail -n 1 | tail -c +2 | head -c -1)
@@ -14,6 +14,7 @@ docker run \
     --hostname portal \
     -e DISPLAY=:$NEW_DISPLAY \
     -v /tmp/.X11-unix/X$NEW_DISPLAY:/tmp/.X11-unix/X$NEW_DISPLAY:rw \
+    --device /dev/snd \
     -v ~/portal_data:/home/worker/data:rw \
     --rm \
     --ipc=host \

@@ -1,4 +1,4 @@
-FROM useto/portal:latest
+FROM portal
 
 RUN sudo pacman -Sy --noconfirm
 RUN sudo pacman -S xorg-server xorg-server-xvfb x11vnc --noconfirm
